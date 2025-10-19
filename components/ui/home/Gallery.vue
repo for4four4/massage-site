@@ -5,20 +5,23 @@
     </div>
     <div class="gallery page-width">
       <div class="gallery-item">
-        <img src="/galery1-optimized.webp" class="gallery-item_image" alt="Nature">
+        <img src="/galery1-optimized.webp" class="gallery-item_image" alt="Nature" @click="open('/galery1-optimized.webp')">
       </div>
       <div class="gallery-item">
-        <img src="/galery2-optimized.webp" class="gallery-item_image" alt="Snow">
+        <img src="/galery2-optimized.webp" class="gallery-item_image" alt="Snow" @click="open('/galery2-optimized.webp')">
       </div>
       <div class="gallery-item">
-        <img src="/galery3-optimized.webp" class="gallery-item_image" alt="Mountains">
+        <img src="/galery3-optimized.webp" class="gallery-item_image" alt="Mountains" @click="open('/galery3-optimized.webp')">
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-// Логика галереи
+const open = (src) => {
+  // @ts-ignore
+  if (window.openImage) window.openImage(src)
+}
 </script>
 
 <style scoped>

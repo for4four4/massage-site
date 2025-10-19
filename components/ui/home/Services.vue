@@ -1,92 +1,30 @@
 <template>
-  <section id="services" class="services page-width" v-reveal>
-    <!-- ... ваш существующий HTML код Services ... -->
-
-    <div class="services-item">
-      <div class="services-item_button" data-attr="massage" @click="serviceToggle('massage')" v-tilt>
-        <span class="item-button_title">Массаж</span>
-        <img
-            class="item-button_arrow"
-            :id="'massage-arrow'"
-            src="/arrow_services.svg"
-            alt="Развернуть список"
-            :style="{ transform: openSections.massage ? 'rotate(180deg)' : 'rotate(0deg)' }"
-        />
-      </div>
-      <div
-          class="services-item_list"
-          id="massage"
-          :style="{
-          display: openSections.massage ? 'flex' : 'none',
-          opacity: openSections.massage ? 1 : 0,
-          transform: openSections.massage ? 'scale(1)' : 'scale(0.9)'
-        }"
-      >
-        <!-- ваши услуги массажа -->
-      </div>
-    </div>
-
-      <div class="services-item" style="margin-top: 40px;">
-      <div class="services-item_button" data-attr="SPA" @click="serviceToggle('SPA')" v-tilt>
-        <span class="item-button_title">СПА-услуги</span>
-        <img
-            class="item-button_arrow"
-            :id="'SPA-arrow'"
-            src="/arrow_services.svg"
-            alt="Развернуть список"
-            :style="{ transform: openSections.spa ? 'rotate(180deg)' : 'rotate(0deg)' }"
-        />
-      </div>
-      <div
-          class="services-item_list"
-          id="SPA"
-          :style="{
-          display: openSections.spa ? 'flex' : 'none',
-          opacity: openSections.spa ? 1 : 0,
-          transform: openSections.spa ? 'scale(1)' : 'scale(0.9)'
-        }"
-      >
-        <!-- ваши СПА услуги -->
-      </div>
-    </div>
+  <section id="services" class="services-slider page-width" v-reveal>
+    <h2 class="categories-title">Услуги</h2>
+    <Carousel :autoplay="true" :interval="5000" :ariaLabel="'Услуги'" defer>
+      <template #default>
+        <NuxtLink v-for="s in items" :key="s.slug" class="service-slide card" :to="`/services/${s.slug}`">
+          <img :src="s.image" :alt="s.title" />
+          <strong class="name">{{ s.title }}</strong>
+        </NuxtLink>
+      </template>
+    </Carousel>
   </section>
 </template>
 
 <script setup>
-const openSections = ref({
-  massage: false,
-  spa: false
-})
-
-const serviceToggle = (type) => {
-  openSections.value[type] = !openSections.value[type]
-
-  // Анимации (опционально)
-  const serviceList = document.getElementById(type)
-  const arrow = document.getElementById(`${type}-arrow`)
-
-  if (serviceList && arrow) {
-    if (openSections.value[type]) {
-      serviceList.animate([
-        {opacity: 0, transform: 'scale(0.9)'},
-        {opacity: 1, transform: 'scale(1)'}
-      ], { duration: 500, easing: 'ease' })
-
-      arrow.animate([
-        {transform: 'rotate(0deg)'},
-        {transform: 'rotate(180deg)'}
-      ], { duration: 500, easing: 'ease' })
-    } else {
-      serviceList.animate([
-        {opacity: 1, transform: 'scale(1)'},
-        {opacity: 0, transform: 'scale(0.9)'}
-      ], { duration: 500, easing: 'ease' })
-
-      arrow.animate([
-        {transform: 'rotate(180deg)'},
-        {transform: 'rotate(0deg)'}
-      ], { duration: 500, easing: 'ease' })
-    }
-  }
-}
+import Carousel from '~/components/ui/common/Carousel.vue'
+const items = [
+  { slug: 'relax', title: 'Расслабляющий массаж', image: '/spina.webp' },
+  { slug: 'lpg', title: 'LPG массаж', image: '/lpg.webp' },
+  { slug: 'face', title: 'Массаж лица', image: '/lico.webp' },
+  { slug: 'sport', title: 'Спортивный массаж', image: '/sport.webp' }
+]
 </script>
+
+<style scoped>
+.services-slider { padding: 32px 0; }
+.service-slide { overflow: hidden; position: relative; }
+.service-slide img { width: 100%; height: 260px; object-fit: cover; }
+.service-slide .name { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,0.9); padding: 6px 10px; border-radius: 8px; color: #2C3E50; }
+</style>

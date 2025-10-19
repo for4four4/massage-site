@@ -1,6 +1,6 @@
 <template>
   <header id="header" class="sticky" v-reveal="'down'">
-    <div class="header page-width" role="navigation" aria-label="Главная навигация">
+    <div class="header" role="navigation" aria-label="Главная навигация">
       <NuxtLink class="header-logo" to="/" aria-label="Relaxation Studio">
         <img class="header-logo_image" src="/mainlogo.svg" alt="Relaxation Studio логотип"/>
         <span class="header-logo_title">Relaxation Studio</span>
@@ -62,15 +62,7 @@ onMounted(() => {
 
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 
-const toggleTheme = () => {
-  try {
-    const current = document.documentElement.getAttribute('data-theme') || 'light'
-    const next = current === 'dark' ? 'light' : 'dark'
-    document.documentElement.setAttribute('data-theme', next)
-    localStorage.setItem('theme', next)
-    isDark.value = next === 'dark'
-  } catch {}
-}
+const toggleTheme = () => {}
 
 const openBooking = () => {
   // YClients widget open if available
@@ -86,10 +78,20 @@ const openBooking = () => {
 </script>
 
 <style lang="scss" scoped>
+
 .sr-only { @include visually-hidden; }
 
-.header { backdrop-filter: saturate(1.2) blur(8px); background: color-mix(in oklab, var(--color-bg) 80%, transparent); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.header {
+  width: min(1280px, 80vw);
+  margin: 12px auto;
+  border-radius: 16px;
+  padding: 12px 16px;
+  background: #F7E0B7;
+  color: #2C3E50;
+  box-shadow: var(--shadow-soft);
+}
 .header-actions { display: flex; gap: 12px; align-items: center; }
+.header-navbar_item { color: #2C3E50; }
 .theme-toggle { color: var(--color-text); }
 
 .header-burger { display: none; background: transparent; border: 0; width: 44px; height: 44px; border-radius: 12px; cursor: pointer; }

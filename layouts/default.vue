@@ -2,7 +2,6 @@
   <div>
     <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
     <Header />
-    <CustomCursor />
     <main id="main-content">
       <slot />
     </main>
@@ -13,7 +12,6 @@
 <script setup>
 import Header from '~/components/ui/layouts/Header.vue'
 import Footer from '~/components/ui/layouts/Footer.vue'
-import CustomCursor from '~/components/ui/common/CustomCursor.vue'
 </script>
 
 <style scoped>

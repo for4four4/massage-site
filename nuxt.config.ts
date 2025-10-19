@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'color-scheme', content: 'light dark' }
+        { name: 'color-scheme', content: 'light' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

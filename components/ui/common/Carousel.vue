@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ autoplay?: boolean; interval?: number; ariaLabel?: string }>(), { autoplay: false, interval: 5000, ariaLabel: 'Карусель' })
+const props = withDefaults(defineProps<{ autoplay?: boolean; interval?: number; ariaLabel?: string; defer?: boolean }>(), { autoplay: false, interval: 5000, ariaLabel: 'Карусель', defer: false })
 
 const viewport = ref<HTMLElement | null>(null)
 const activeIndex = ref(0)
@@ -24,8 +24,15 @@ const count = ref(0)
 let timer: any
 
 onMounted(() => {
-  count.value = viewport.value?.querySelectorAll('.track > *').length || 0
-  if (props.autoplay) timer = setInterval(next, props.interval)
+  const init = () => {
+    count.value = viewport.value?.querySelectorAll('.track > *').length || 0
+    if (props.autoplay) timer = setInterval(next, props.interval)
+  }
+  if (props.defer && 'requestIdleCallback' in window) {
+    ;(window as any).requestIdleCallback(init)
+  } else {
+    setTimeout(init, 0)
+  }
 })
 
 onBeforeUnmount(() => { if (timer) clearInterval(timer) })

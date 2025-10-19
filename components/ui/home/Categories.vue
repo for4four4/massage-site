@@ -13,8 +13,8 @@
           v-tilt
           @click.prevent="showElements(category.attr)"
       >
-        <img class="categories-item_background" :src="category.image" alt="" />
-        <span class="categories-item_title" :style="category.titleStyle">{{ category.title }}</span>
+        <img class="categories-item_background" :src="category.image" :alt="category.title" />
+        <span class="categories-item_title">{{ category.title }}</span>
         <div
             class="categories-item_list-services"
             :style="{
@@ -34,33 +34,9 @@
 const activeCategory = ref(null)
 
 const categories = [
-  {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1200&auto=format&fit=crop',
-    title: 'Массаж лица и тела',
-    titleStyle: 'left:-45px;',
-    href: '#massage_services',
-    attr: 'massage',
-    services: ['Общий массаж', 'Массаж ног', 'Массаж спины', 'Массаж лица']
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1556229151-88bfa57658f2?q=80&w=1200&auto=format&fit=crop',
-    title: 'СПА-процедуры',
-    titleStyle: 'top:-15px;',
-    href: '#SPA',
-    attr: 'SPA',
-    services: ['Кедровая бочка', 'Обертывание', 'Скрабирование', 'Вакуумные банки']
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop',
-    title: 'Аппаратные процедуры',
-    titleStyle: 'right:-45px;',
-    href: '#techique',
-    attr: 'massage',
-    services: ['Массаж LPG', 'Массаж миостимуляции']
-  }
+  { id: 1, image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1200&auto=format&fit=crop', title: 'Массаж лица и тела', href: '/services/relax', attr: 'massage', services: ['Общий массаж', 'Массаж ног', 'Массаж спины', 'Массаж лица'] },
+  { id: 2, image: 'https://images.unsplash.com/photo-1556229151-88bfa57658f2?q=80&w=1200&auto=format&fit=crop', title: 'СПА-процедуры', href: '/services', attr: 'SPA', services: ['Кедровая бочка', 'Обертывание', 'Скрабирование', 'Вакуумные банки'] },
+  { id: 3, image: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop', title: 'Аппаратные процедуры', href: '/services/lpg', attr: 'apparatus', services: ['Массаж LPG', 'Миостимуляция'] }
 ]
 
 const showElements = (attr) => {

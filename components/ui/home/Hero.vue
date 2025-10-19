@@ -23,13 +23,23 @@
         </div>
       </div>
       <div class="hero-right" v-reveal="'right'">
-        <div class="hero-card card" v-tilt tabindex="0" aria-label="Сеанс расслабляющего массажа">
-          <img src="/lpg.webp" alt="Сеанс массажа" class="hero-card_img"/>
-          <div class="hero-card_info">
-            <strong>Расслабляющий массаж</strong>
-            <span>60 мин · от 2 900 ₽</span>
-          </div>
-        </div>
+        <Carousel :autoplay="true" :interval="6000" :ariaLabel="'Герой'" defer>
+          <template #default>
+            <div class="hero-card card" aria-label="Видео">
+              <video class="hero-video" preload="metadata" muted playsinline loop autoplay>
+                <source src="/massage-optimized.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="hero-card card" aria-label="Расслабляющий массаж">
+              <img src="/spina.webp" alt="Расслабляющий массаж" class="hero-card_img"/>
+              <div class="hero-card_info"><strong>Расслабляющий массаж</strong><span>60 мин · от 2 900 ₽</span></div>
+            </div>
+            <div class="hero-card card" aria-label="LPG массаж">
+              <img src="/lpg.webp" alt="LPG массаж" class="hero-card_img"/>
+              <div class="hero-card_info"><strong>LPG массаж</strong><span>40 мин · от 2 500 ₽</span></div>
+            </div>
+          </template>
+        </Carousel>
       </div>
     </div>
   </section>
@@ -37,6 +47,7 @@
 
 <script setup>
 import AnimatedCounter from '~/components/ui/common/AnimatedCounter.vue'
+import Carousel from '~/components/ui/common/Carousel.vue'
 
 const openBooking = () => {
   try {
@@ -60,9 +71,10 @@ const openBooking = () => {
 .hero-actions { display: flex; gap: 12px; margin-bottom: 20px; }
 .hero-trust { display: flex; gap: 20px; flex-wrap: wrap; }
 .hero-right { display: grid; place-items: center; }
-.hero-card { width: 100%; max-width: 420px; overflow: hidden; transform-style: preserve-3d; perspective: 1000px; }
+.hero-card { width: 100%; max-width: 420px; overflow: hidden; }
 .hero-card_img { width: 100%; height: 280px; object-fit: cover; }
 .hero-card_info { padding: 14px; display: flex; justify-content: space-between; }
+.hero-video { width: 100%; height: 280px; object-fit: cover; }
 
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; }

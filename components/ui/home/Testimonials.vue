@@ -1,7 +1,7 @@
 <template>
   <section class="testimonials page-width" aria-labelledby="testimonials-title" v-reveal>
     <h2 id="testimonials-title" class="testimonials-title">Отзывы клиентов</h2>
-    <Carousel :autoplay="true" :interval="4000" :ariaLabel="'Отзывы'">
+    <Carousel :autoplay="true" :interval="4000" :ariaLabel="'Отзывы'" defer>
       <template #default>
         <div class="testimonial card" v-for="(t, i) in testimonials" :key="i">
           <div class="testimonial-header">

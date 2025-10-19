@@ -1,20 +1,4 @@
-#header {
-  position: fixed;
-  top:0;
-  z-index: 9999;
-}
-
-.header {
-  width: 100vw !important;
-  margin: 0 !important;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px;
-  height: 100px;
-  background-color: #698D69;
-}
+/* Header visuals adjusted in component-scoped SCSS now */
 
 .header-logo {
   display: inherit;

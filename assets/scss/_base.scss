@@ -27,15 +27,7 @@
   --transition-slow: 500ms ease;
 }
 
-[data-theme="dark"] {
-  --color-bg: #111418;
-  --color-surface: #171B20;
-  --color-primary: #6FAE6F;
-  --color-primary-contrast: #0D120D;
-  --color-text: #E8EDEE;
-  --color-muted: #A1AAB3;
-  --color-accent: #B28A6A;
-}
+/* Dark theme removed per request; keep only light theme vars */
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }

@@ -1,18 +1,6 @@
-#footer {
-  width: 100vw;
-  margin-top: 40px;
-  background: #698D69;
-}
+#footer { width: 100%; margin-top: 40px; background: #698D69; }
 
-.footer {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  align-items: flex-start;
-  margin-bottom: 40px !important;
-  margin-top: 40px !important;
-}
+.footer { display:flex; flex-direction: row; justify-content: space-between; width: min(1280px, 90vw); margin: 0 auto; align-items: flex-start; padding: 20px 0; }
 
 .title {
   font-family: 'CafeParisC';
