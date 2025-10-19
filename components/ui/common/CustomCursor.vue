@@ -2,7 +2,7 @@
   <div class="cursor" :style="style" aria-hidden="true"></div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const pos = reactive({ x: 0, y: 0 })
 const style = computed(() => ({ transform: `translate3d(${pos.x}px, ${pos.y}px, 0)` }))
 
