@@ -1,20 +1,34 @@
 import { useHead } from '#imports'
 
+type ValueLike = string | number | boolean | null | undefined
+type Resolvable = ValueLike | (() => ValueLike) | { value?: ValueLike }
+
 export interface SeoOptions {
-  title?: string
-  description?: string
-  image?: string
-  url?: string
-  keywords?: string
+  title?: Resolvable
+  description?: Resolvable
+  image?: Resolvable
+  url?: Resolvable
+  keywords?: Resolvable
   noindex?: boolean
 }
 
+function resolve(v: Resolvable, fallback: string): string {
+  try {
+    if (typeof v === 'function') return String((v as any)() ?? fallback)
+    if (v && typeof v === 'object' && 'value' in (v as any)) return String((v as any).value ?? fallback)
+    if (v == null) return fallback
+    return String(v)
+  } catch {
+    return fallback
+  }
+}
+
 export function useSeo(opts: SeoOptions) {
-  const title = opts.title || 'Relaxation Studio — массаж и SPA'
-  const description = opts.description || 'Премиальные процедуры массажа и SPA в спокойной атмосфере.'
-  const image = opts.image || '/mainlogo.svg'
-  const url = opts.url || 'https://relaxation-studio.ru/'
-  const keywords = opts.keywords || 'массаж, спа, студия массажа, спа процедуры, тула'
+  const title = resolve(opts.title ?? '', 'Relaxation Studio — массаж и SPA')
+  const description = resolve(opts.description ?? '', 'Премиальные процедуры массажа и SPA в спокойной атмосфере.')
+  const image = resolve(opts.image ?? '', '/mainlogo.svg')
+  const url = resolve(opts.url ?? '', 'https://relaxation-studio.ru/')
+  const keywords = resolve(opts.keywords ?? '', 'массаж, спа, студия массажа, спа процедуры, тула')
   const robots = opts.noindex ? 'noindex,nofollow' : 'index,follow'
 
   useHead({
