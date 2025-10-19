@@ -17,11 +17,6 @@
       </nav>
 
       <div class="header-actions">
-        <button class="btn btn-ghost theme-toggle" @click="toggleTheme" :aria-pressed="isDark">
-          <span class="sr-only">Переключить тему</span>
-          <svg v-if="isDark" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5"/></svg>
-          <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0L17.95 7.05M7.05 16.95l-1.414 1.414" stroke="currentColor" stroke-width="1.5"/></svg>
-        </button>
         <a class="btn btn-primary ms_booking" href="#" @click.prevent="openBooking">Записаться</a>
       </div>
 
@@ -52,17 +47,11 @@
 
 <script setup>
 const menuOpen = ref(false)
-const isDark = ref(false)
 
-onMounted(() => {
-  try {
-    isDark.value = document.documentElement.getAttribute('data-theme') === 'dark'
-  } catch {}
-})
+onMounted(() => {})
 
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 
-const toggleTheme = () => {}
 
 const openBooking = () => {
   // YClients widget open if available
