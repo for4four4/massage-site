@@ -29,28 +29,29 @@ const trackStyle = computed(() => ({
 } as any))
 let timer: any
 
+function handleResize() {
+  const w = window.innerWidth
+  perView.value = w >= 1200 ? 3 : w >= 450 ? 2 : 1
+  if (activeIndex.value > count.value - perView.value) {
+    activeIndex.value = Math.max(0, count.value - perView.value)
+  }
+}
+
 onMounted(() => {
   const init = () => {
     count.value = viewport.value?.querySelectorAll('.track > *').length || 0
     if (props.autoplay) timer = setInterval(next, props.interval)
-  }
-  const calcPerView = () => {
-    const w = window.innerWidth
-    perView.value = w >= 1200 ? 3 : w >= 450 ? 2 : 1
-    if (activeIndex.value > count.value - perView.value) {
-      activeIndex.value = Math.max(0, count.value - perView.value)
-    }
   }
   if (props.defer && 'requestIdleCallback' in window) {
     ;(window as any).requestIdleCallback(init)
   } else {
     setTimeout(init, 0)
   }
-  calcPerView()
-  window.addEventListener('resize', calcPerView)
+  handleResize()
+  window.addEventListener('resize', handleResize)
 })
 
-onBeforeUnmount(() => { if (timer) clearInterval(timer); window.removeEventListener('resize', calcPerView as any) })
+onBeforeUnmount(() => { if (timer) clearInterval(timer); window.removeEventListener('resize', handleResize) })
 
 function next() {
   const maxIndex = Math.max(0, count.value - perView.value)

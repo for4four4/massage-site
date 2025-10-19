@@ -14,7 +14,12 @@
 
 <script setup>
 import Carousel from '~/components/ui/common/Carousel.vue'
-const items = await $fetch('/api/services')
+const items = await $fetch('/api/services').catch(() => [
+  { slug: 'relax', title: 'Расслабляющий массаж', image: '/spina.webp' },
+  { slug: 'lpg', title: 'LPG массаж', image: '/lpg.webp' },
+  { slug: 'face', title: 'Массаж лица', image: '/lico.webp' },
+  { slug: 'sport', title: 'Спортивный массаж', image: '/sport.webp' }
+])
 </script>
 
 <style scoped>

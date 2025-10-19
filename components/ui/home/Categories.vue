@@ -31,7 +31,7 @@
 <script setup>
 const activeCategory = ref(null)
 
-const categories = await $fetch('/api/categories')
+const categories = await $fetch('/api/categories').catch(() => [])
 
 const showElements = (attr) => { activeCategory.value = attr }
 </script>
