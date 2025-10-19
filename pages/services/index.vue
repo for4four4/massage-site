@@ -23,12 +23,7 @@ useSeo({
   title: 'Услуги массажа и SPA — Relaxation Studio',
   description: 'Расслабляющий, спортивный, LPG и другие процедуры. Узнайте подробности и запишитесь онлайн.'
 })
-const services = [
-  { slug: 'relax', title: 'Расслабляющий массаж', short: '60 мин · от 2 900 ₽', image: '/spina.webp' },
-  { slug: 'lpg', title: 'LPG массаж', short: '40 мин · от 2 500 ₽', image: '/lpg.webp' },
-  { slug: 'face', title: 'Массаж лица', short: '30 мин · от 1 500 ₽', image: '/lico.webp' },
-  { slug: 'sport', title: 'Спортивный массаж', short: '60 мин · от 3 200 ₽', image: '/sport.webp' }
-]
+const services = await $fetch('/api/services')
 </script>
 
 <style scoped>

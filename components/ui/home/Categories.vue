@@ -31,11 +31,7 @@
 <script setup>
 const activeCategory = ref(null)
 
-const categories = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1200&auto=format&fit=crop', title: 'Массаж лица и тела', href: '/services/relax', attr: 'massage', services: ['Общий массаж', 'Массаж ног', 'Массаж спины', 'Массаж лица'] },
-  { id: 2, image: 'https://images.unsplash.com/photo-1556229151-88bfa57658f2?q=80&w=1200&auto=format&fit=crop', title: 'СПА-процедуры', href: '/services', attr: 'SPA', services: ['Кедровая бочка', 'Обертывание', 'Скрабирование', 'Вакуумные банки'] },
-  { id: 3, image: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop', title: 'Аппаратные процедуры', href: '/services/lpg', attr: 'apparatus', services: ['Массаж LPG', 'Миостимуляция'] }
-]
+const categories = await $fetch('/api/categories')
 
 const showElements = (attr) => { activeCategory.value = attr }
 </script>

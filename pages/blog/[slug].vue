@@ -22,14 +22,8 @@
 <script setup lang="ts">
 import { useSeo } from '~/composables/useSeo'
 const route = useRoute()
-const db: Record<string, any> = {
-  'benefits-of-massage': { title: 'Польза массажа для здоровья', date: '2025-10-01', image: '/1kat-optimized.webp', body: 'Регулярный массаж поддерживает здоровье мышц и суставов, улучшает настроение и качество сна.' },
-  'self-care-tips': { title: 'Самопомощь между сеансами', date: '2025-10-10', image: '/2kat-optimized.webp', body: 'Несколько простых практик помогут сохранить ощущение легкости и расслабленности.' },
-  'lpg-explained': { title: 'LPG: как это работает', date: '2025-10-12', image: '/lpg.webp', body: 'Технология LPG основана на механостимуляции тканей. Рассмотрим показания и эффекты.' },
-  'sports-recovery': { title: 'Восстановление после спорта', date: '2025-10-14', image: '/sport.webp', body: 'Массаж ускоряет восстановление и снижает риск травм.' },
-  'facial-massage-benefits': { title: 'Преимущества массажа лица', date: '2025-10-16', image: '/lico.webp', body: 'Лимфодренаж и лифтинг-эффект улучшают тонус и цвет кожи.' }
-}
-const post = computed(() => db[String(route.params.slug)] || { title: 'Статья не найдена', date: '', image: '/3kat-optimized.webp', body: 'К сожалению, статья не найдена.' })
+const post = ref<any>(null)
+post.value = await $fetch(`/api/blogs/${route.params.slug}`)
 
 useSeo({
   title: () => `${post.value.title} — Блог Relaxation Studio`,

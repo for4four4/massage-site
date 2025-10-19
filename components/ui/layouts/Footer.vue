@@ -51,9 +51,10 @@
 </template>
 
 <script setup>
-const mapFrame = ref(null)
+const mapFrame = ref<HTMLIFrameElement | null>(null)
 const mapLoaded = ref(false)
 const mapSrc = ref('') // Начинаем с пустого src
+const contacts = ref<any>(null)
 
 const onMapLoad = () => {
   mapLoaded.value = true
@@ -62,6 +63,8 @@ const onMapLoad = () => {
 
 // Загружаем карту после полной загрузки страницы
 onMounted(() => {
+  // Подгрузим контакты
+  $fetch('/api/contacts').then((c) => { contacts.value = c })
   // Ждем полной загрузки страницы
   if (document.readyState === 'complete') {
     loadMapWithDelay()

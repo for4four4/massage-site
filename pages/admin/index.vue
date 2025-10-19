@@ -2,7 +2,7 @@
   <section class="page-width admin">
     <header>
       <h1>Админ-панель</h1>
-      <p>Настройки SEO и управление блогом</p>
+      <p>Настройки сайта: SEO, меню, блоги, услуги, категории, FAQ, страницы.</p>
     </header>
 
     <div class="grid">
@@ -16,11 +16,33 @@
       </form>
 
       <div class="card">
-        <h2>Посты</h2>
+        <h2>Контакты</h2>
+        <label>Телефон<input v-model="contacts.phone" type="text" /></label>
+        <label>Email<input v-model="contacts.email" type="email" /></label>
+        <label>Адрес<input v-model="contacts.address" type="text" /></label>
+        <label>Карта (iframe src)<input v-model="contacts.map" type="text" /></label>
+        <label>Часы работы<input v-model="contacts.hours" type="text" /></label>
+        <button class="btn btn-primary" @click="saveContacts">Сохранить контакты</button>
+      </div>
+
+      <div class="card">
+        <h2>Блоги</h2>
         <ul>
-          <li v-for="p in posts" :key="p.slug">
-            <NuxtLink :to="`/blog/${p.slug}`">{{ p.title }}</NuxtLink>
-          </li>
+          <li v-for="b in blogs" :key="b.slug"><NuxtLink :to="`/blog/${b.slug}`">{{ b.title }}</NuxtLink></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Услуги</h2>
+        <ul>
+          <li v-for="s in services" :key="s.slug"><NuxtLink :to="`/services/${s.slug}`">{{ s.title }}</NuxtLink></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Категории</h2>
+        <ul>
+          <li v-for="c in categories" :key="c.slug"><NuxtLink :to="`/services`">{{ c.title }}</NuxtLink></li>
         </ul>
       </div>
     </div>
@@ -29,24 +51,28 @@
 
 <script setup>
 const seo = reactive({ title: '', description: '', image: '', url: '' })
-const posts = ref([])
+const contacts = reactive({ phone: '', email: '', address: '', map: '', hours: '' })
+const blogs = ref<any[]>([])
+const services = ref<any[]>([])
+const categories = ref<any[]>([])
 
 onMounted(async () => {
   const s = await $fetch('/api/seo')
   Object.assign(seo, s.site)
-  posts.value = await $fetch('/api/posts')
+  Object.assign(contacts, await $fetch('/api/contacts'))
+  blogs.value = await $fetch('/api/blogs')
+  services.value = await $fetch('/api/services')
+  categories.value = await $fetch('/api/categories')
 })
 
-const saveSeo = async () => {
-  await $fetch('/api/seo', { method: 'POST', body: { site: seo } })
-  alert('Сохранено (mock)')
-}
+const saveSeo = async () => { await $fetch('/api/seo', { method: 'POST', body: { site: seo } }); alert('Сохранено (mock)') }
+const saveContacts = async () => { /* TODO: wire to DB */ alert('Сохранено (mock)') }
 </script>
 
 <style scoped>
 .admin { padding: 24px 0; }
-.grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
-form { display: grid; gap: 10px; padding: 16px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+form, .card { display: grid; gap: 10px; padding: 16px; }
 label { display: grid; gap: 6px; }
 input, textarea { padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.12); background: var(--color-surface); color: var(--color-text); }
 </style>
