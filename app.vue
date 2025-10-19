@@ -11,6 +11,7 @@
 useHead({
   title: 'Relaxation Studio — массаж и SPA | Премиальные процедуры',
   meta: [
+    { name: 'robots', content: 'noindex, nofollow' },
     { name: 'description', content: 'Relaxation Studio — премиальная студия массажа и SPA. Профессиональные терапевты, современное оборудование, расслабляющая атмосфера.' },
     { name: 'keywords', content: 'массаж, спа, студия массажа, спа-процедуры, Тула' },
     { property: 'og:title', content: 'Relaxation Studio — студия массажа и SPA' },

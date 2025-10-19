@@ -1,10 +1,17 @@
 import pg from 'pg'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const { Pool } = pg
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : undefined
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432'),
+  database: process.env.DB_NAME || 'relaxation_studio',
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD || 'relaxation_admin_db_2025',
+  ssl: process.env.DB_SSL === 'true'
 })
 
 export async function query<T = unknown>(text: string, params?: unknown[]): Promise<{ rows: T[] }> {
