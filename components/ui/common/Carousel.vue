@@ -10,7 +10,7 @@
       <button class="btn" @click="next" aria-label="Следующий">›</button>
     </div>
     <div class="dots">
-      <button v-for="(d, i) in pages" :key="i" class="dot" :class="{ active: i===activeIndex }" @click="go(i)"></button>
+      <button v-for="i in pages" :key="i" class="dot" :class="{ active: (i-1)===activeIndex }" @click="go(i-1)"></button>
     </div>
   </div>
 </template>
@@ -50,7 +50,7 @@ onMounted(() => {
   window.addEventListener('resize', calcPerView)
 })
 
-onBeforeUnmount(() => { if (timer) clearInterval(timer); window.removeEventListener('resize', () => {}) })
+onBeforeUnmount(() => { if (timer) clearInterval(timer); window.removeEventListener('resize', calcPerView as any) })
 
 function next() {
   const maxIndex = Math.max(0, count.value - perView.value)
