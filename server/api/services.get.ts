@@ -2,7 +2,7 @@ import { query } from '../utils/db'
 
 export default defineEventHandler(async () => {
   try {
-    const { rows } = await query(`SELECT id, title, slug, image FROM services WHERE is_active = true ORDER BY id ASC`)
+    const { rows } = await query(`SELECT id, title, slug, image FROM public.services WHERE is_active = true ORDER BY id ASC`)
     return rows
   } catch (e: any) {
     console.error('services.get error', e)
