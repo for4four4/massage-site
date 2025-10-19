@@ -27,6 +27,11 @@
 </template>
 
 <script setup>
+import { useSeo } from '~/composables/useSeo'
+useSeo({
+  title: 'О Relaxation Studio — команда и ценности',
+  description: 'Наша миссия, история и команда профессиональных массажистов с сертификатами.'
+})
 </script>
 
 <style scoped>

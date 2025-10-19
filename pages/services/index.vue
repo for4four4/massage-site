@@ -18,6 +18,11 @@
 </template>
 
 <script setup lang="ts">
+import { useSeo } from '~/composables/useSeo'
+useSeo({
+  title: 'Услуги массажа и SPA — Relaxation Studio',
+  description: 'Расслабляющий, спортивный, LPG и другие процедуры. Узнайте подробности и запишитесь онлайн.'
+})
 const services = [
   { slug: 'relax', title: 'Расслабляющий массаж', short: '60 мин · от 2 900 ₽', image: '/spina.webp' },
   { slug: 'lpg', title: 'LPG массаж', short: '40 мин · от 2 500 ₽', image: '/lpg.webp' },

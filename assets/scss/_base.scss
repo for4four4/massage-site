@@ -101,6 +101,14 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monos
 /* Glass effect */
 .glass { @include glass; border-radius: $radius-lg; }
 
+/* Reveal animations */
+.reveal { opacity: 0; transform: translateY(14px) scale(.98); filter: blur(2px); transition: opacity var(--transition-slow), transform var(--transition-slow), filter var(--transition-slow); }
+.reveal.is-revealed { opacity: 1; transform: none; filter: none; }
+.reveal-left { transform: translateX(-16px); }
+.reveal-right { transform: translateX(16px); }
+.reveal-up { transform: translateY(16px); }
+.reveal-down { transform: translateY(-16px); }
+
 /* Page & layout transitions */
 .page-enter-active, .page-leave-active { transition: opacity 300ms ease, transform 300ms ease; }
 .page-enter-from, .page-leave-to { opacity: 0; transform: translateY(8px); }

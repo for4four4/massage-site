@@ -1,5 +1,5 @@
 <template>
-  <div class="item-list_service" itemscope itemtype="http://schema.org/ImageObject">
+  <div class="item-list_service" itemscope itemtype="http://schema.org/ImageObject" v-reveal v-tilt>
     <img itemprop="contentUrl" class="service-image" :src="image" :alt="title"/>
     <div class="service-description">
       <div class="description-title" itemprop="name">{{ title }}</div>

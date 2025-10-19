@@ -20,6 +20,8 @@
 </template>
 
 <script setup>
+import { useSeo } from '~/composables/useSeo'
+useSeo({ title: 'Контакты — Relaxation Studio', description: 'Позвоните, напишите или запишитесь онлайн. Ежедневно 08:00–20:00.' })
 </script>
 
 <style scoped>

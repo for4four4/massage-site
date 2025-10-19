@@ -18,6 +18,8 @@
 </template>
 
 <script setup>
+import { useSeo } from '~/composables/useSeo'
+useSeo({ title: 'Спецпредложения — Relaxation Studio', description: 'Акции, пакеты и подарочные сертификаты на массаж и SPA.' })
 const offers = [
   { title: 'Пакет «Детокс»', text: 'LPG + лимфодренаж · выгода 15%' },
   { title: 'Подарочный сертификат', text: 'На любую сумму и услугу' },
@@ -26,7 +28,7 @@ const offers = [
 </script>
 
 <style scoped>
-offers-page { padding: 32px 0; }
+.offers-page { padding: 32px 0; }
 .offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .offer { overflow: hidden; }
 .offer-body { padding: 16px; display: grid; gap: 8px; }

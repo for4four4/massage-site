@@ -44,6 +44,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
+import { useSeo } from '~/composables/useSeo'
 
 const db: Record<string, any> = {
   relax: { title: 'Расслабляющий массаж', subtitle: 'Снятие напряжения и восстановление ресурса', duration: '60 мин', price: 'от 2 900 ₽', image: '/spina.webp', benefits: ['Снимает стресс', 'Улучшает сон', 'Повышает тонус'], indications: 'Усталость, стресс, мышечные зажимы' },
@@ -59,6 +60,13 @@ const openBooking = () => { try { // @ts-ignore
   if (window && window.yc && typeof window.yc.open === 'function') { // @ts-ignore
     window.yc.open() } } catch {}
 }
+
+useSeo({
+  title: () => `${service.value.title} — Relaxation Studio`,
+  description: () => `${service.value.subtitle}. Длительность ${service.value.duration}. Цена ${service.value.price}.`,
+  image: () => service.value.image,
+  url: () => `https://relaxation-studio.ru/services/${route.params.slug}`
+} as any)
 </script>
 
 <style scoped>

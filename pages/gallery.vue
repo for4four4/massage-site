@@ -11,6 +11,8 @@
 </template>
 
 <script setup>
+import { useSeo } from '~/composables/useSeo'
+useSeo({ title: 'Галерея — Relaxation Studio', description: 'Фотографии наших процедур, интерьеров и атмосферы студии.' })
 const images = ['/galery1-optimized.webp','/galery2-optimized.webp','/galery3-optimized.webp','/1kat-optimized.webp','/2kat-optimized.webp','/3kat-optimized.webp']
 </script>
 

@@ -1,16 +1,16 @@
 <template>
-  <section class="trust page-width" aria-labelledby="trust-title">
+  <section class="trust page-width" aria-labelledby="trust-title" v-reveal>
     <h2 id="trust-title" class="trust-title">Почему нас выбирают</h2>
     <ul class="trust-list">
-      <li class="trust-item card">
+      <li class="trust-item card" v-tilt>
         <strong>Сертифицированные специалисты</strong>
         <p>Команда профессионалов с медицинским образованием и дипломами международного образца.</p>
       </li>
-      <li class="trust-item card">
+      <li class="trust-item card" v-tilt>
         <strong>Премиальная атмосфера</strong>
         <p>Тихие кабинеты, ароматы, тёплый свет и тактильные материалы для максимального комфорта.</p>
       </li>
-      <li class="trust-item card">
+      <li class="trust-item card" v-tilt>
         <strong>Современные методики</strong>
         <p>LPG, миостимуляция и авторские техники для заметного результата.</p>
       </li>

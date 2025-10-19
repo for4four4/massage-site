@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-reveal>
     <div class="gallery-title page-width" id="gallery">
       Фотогалерея
     </div>

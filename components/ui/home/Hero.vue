@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero" v-reveal>
     <div class="hero-media" aria-hidden="true">
       <img class="hero-bg" src="/main_photo-optimized.webp" alt="" />
       <div class="hero-overlay"></div>
@@ -12,18 +12,18 @@
         <p class="hero-subtitle">
           Забота о теле и душе в атмосфере спокойствия. Профессиональные терапевты, проверенные методики и измеримый результат.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions" v-reveal="'left'">
           <a class="btn btn-primary ms_booking" href="#" @click.prevent="openBooking">Записаться</a>
           <NuxtLink class="btn btn-ghost" to="/services">Смотреть услуги</NuxtLink>
         </div>
-        <div class="hero-trust">
+        <div class="hero-trust" v-reveal="'up'">
           <AnimatedCounter :to="5000" :duration="1600" label="Довольных клиентов" />
           <AnimatedCounter :to="8" :duration="1200" label="Лет опыта" />
           <AnimatedCounter :to="15" :duration="1200" label="Сертификатов" />
         </div>
       </div>
-      <div class="hero-right">
-        <div class="hero-card card" tabindex="0" aria-label="Сеанс расслабляющего массажа">
+      <div class="hero-right" v-reveal="'right'">
+        <div class="hero-card card" v-tilt tabindex="0" aria-label="Сеанс расслабляющего массажа">
           <img src="/lpg.webp" alt="Сеанс массажа" class="hero-card_img"/>
           <div class="hero-card_info">
             <strong>Расслабляющий массаж</strong>

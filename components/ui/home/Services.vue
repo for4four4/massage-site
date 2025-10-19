@@ -1,9 +1,9 @@
 <template>
-  <section id="services" class="services page-width">
+  <section id="services" class="services page-width" v-reveal>
     <!-- ... ваш существующий HTML код Services ... -->
 
     <div class="services-item">
-      <div class="services-item_button" data-attr="massage" @click="serviceToggle('massage')">
+      <div class="services-item_button" data-attr="massage" @click="serviceToggle('massage')" v-tilt>
         <span class="item-button_title">Массаж</span>
         <img
             class="item-button_arrow"
@@ -26,8 +26,8 @@
       </div>
     </div>
 
-    <div class="services-item" style="margin-top: 40px;">
-      <div class="services-item_button" data-attr="SPA" @click="serviceToggle('SPA')">
+      <div class="services-item" style="margin-top: 40px;">
+      <div class="services-item_button" data-attr="SPA" @click="serviceToggle('SPA')" v-tilt>
         <span class="item-button_title">СПА-услуги</span>
         <img
             class="item-button_arrow"

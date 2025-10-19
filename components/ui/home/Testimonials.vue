@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials page-width" aria-labelledby="testimonials-title">
+  <section class="testimonials page-width" aria-labelledby="testimonials-title" v-reveal>
     <h2 id="testimonials-title" class="testimonials-title">Отзывы клиентов</h2>
     <Carousel :autoplay="true" :interval="4000" :ariaLabel="'Отзывы'">
       <template #default>

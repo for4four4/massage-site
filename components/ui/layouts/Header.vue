@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="sticky">
+  <header id="header" class="sticky" v-reveal="'down'">
     <div class="header page-width" role="navigation" aria-label="Главная навигация">
       <NuxtLink class="header-logo" to="/" aria-label="Relaxation Studio">
         <img class="header-logo_image" src="/mainlogo.svg" alt="Relaxation Studio логотип"/>

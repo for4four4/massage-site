@@ -21,11 +21,19 @@
 
 <script setup>
 const route = useRoute()
+import { useSeo } from '~/composables/useSeo'
 const db: Record<string, any> = {
   'benefits-of-massage': { title: 'Польза массажа для здоровья', date: '2025-10-01', image: '/1kat-optimized.webp', body: 'Регулярный массаж поддерживает здоровье мышц и суставов, улучшает настроение и качество сна.' },
   'self-care-tips': { title: 'Самопомощь между сеансами', date: '2025-10-10', image: '/2kat-optimized.webp', body: 'Несколько простых практик помогут сохранить ощущение легкости и расслабленности.' }
 }
 const post = computed(() => db[String(route.params.slug)] || { title: 'Запись', date: '', image: '/3kat-optimized.webp', body: '' })
+
+useSeo({
+  title: () => `${post.value.title} — Блог Relaxation Studio`,
+  description: () => post.value.body?.slice(0, 150) || 'Статья блога.',
+  image: () => post.value.image,
+  url: () => `https://relaxation-studio.ru/blog/${route.params.slug}`
+} as any)
 </script>
 
 <style scoped>

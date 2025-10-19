@@ -11,6 +11,8 @@
 
 <script setup>
 import BookingWidget from '~/components/ui/common/BookingWidget.vue'
+import { useSeo } from '~/composables/useSeo'
+useSeo({ title: 'Онлайн-запись — Relaxation Studio', description: 'Быстрая и удобная запись на массаж и SPA-процедуры.' })
 </script>
 
 <style scoped>

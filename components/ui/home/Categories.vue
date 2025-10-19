@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-reveal>
     <div id="categories" class="categories-title page-width">
       Категории услуг
     </div>
@@ -10,6 +10,7 @@
           class="categories-item"
           :href="category.href"
           :data-attr="category.attr"
+          v-tilt
           @click.prevent="showElements(category.attr)"
       >
         <img class="categories-item_background" :src="category.image" alt="" />
@@ -35,7 +36,7 @@ const activeCategory = ref(null)
 const categories = [
   {
     id: 1,
-    image: '/1kat-optimized.webp',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1200&auto=format&fit=crop',
     title: 'Массаж лица и тела',
     titleStyle: 'left:-45px;',
     href: '#massage_services',
@@ -44,7 +45,7 @@ const categories = [
   },
   {
     id: 2,
-    image: '/2kat-optimized.webp',
+    image: 'https://images.unsplash.com/photo-1556229151-88bfa57658f2?q=80&w=1200&auto=format&fit=crop',
     title: 'СПА-процедуры',
     titleStyle: 'top:-15px;',
     href: '#SPA',
@@ -53,7 +54,7 @@ const categories = [
   },
   {
     id: 3,
-    image: '/3kat-optimized.webp',
+    image: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop',
     title: 'Аппаратные процедуры',
     titleStyle: 'right:-45px;',
     href: '#techique',
