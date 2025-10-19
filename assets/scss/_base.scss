@@ -81,6 +81,14 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monos
 }
 .btn-ghost:hover { background: rgba(0,0,0,0.03); }
 
+/* Responsive spacing adjustments */
+@media (max-width: 960px) {
+  .page-width { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 600px) {
+  .page-width { padding-left: 12px; padding-right: 12px; }
+}
+
 /* Card */
 .card {
   background: var(--color-surface);

@@ -1,7 +1,7 @@
 <template>
   <section class="hero" v-reveal>
     <div class="hero-media" aria-hidden="true">
-      <img class="hero-bg" src="/main_photo-optimized.webp" alt="" />
+      <img class="hero-bg" src="/main_photo-optimized.webp" alt="" fetchpriority="high" />
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-inner page-width">

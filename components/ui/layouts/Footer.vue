@@ -35,16 +35,18 @@
     </div>
 
     <!-- Карта с отложенной загрузкой -->
-    <iframe
-        ref="mapFrame"
-        :src="mapSrc"
-        width="100%"
-        height="400"
-        frameborder="0"
-        loading="lazy"
-        @load="onMapLoad"
-        title="Карта расположения студии массажа"
-    ></iframe>
+<client-only>
+  <iframe
+          ref="mapFrame"
+          :src="mapSrc"
+          width="100%"
+          height="400"
+          frameborder="0"
+          loading="lazy"
+          @load="onMapLoad"
+          title="Карта расположения студии массажа"
+  ></iframe>
+</client-only>
   </footer>
 </template>
 
