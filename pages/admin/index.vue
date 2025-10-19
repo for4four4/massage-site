@@ -49,7 +49,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const seo = reactive({ title: '', description: '', image: '', url: '' })
 const contacts = reactive({ phone: '', email: '', address: '', map: '', hours: '' })
 const blogs = ref<any[]>([])
