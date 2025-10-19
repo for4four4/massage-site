@@ -3,7 +3,7 @@
     <meta itemprop="copyrightYear" content="2023">
     <meta itemprop="copyrightHolder" content="Студия аппаратного и ручного массажа">
     <div class="title page-width">Контакты</div>
-    <div class="footer page-width" itemscope itemtype="http://schema.org/LocalBusiness">
+    <div class="footer" itemscope itemtype="http://schema.org/LocalBusiness">
       <meta itemprop="name" content="Студия аппаратного и ручного массажа">
       <meta itemprop="image" content="https://relaxation-studio.ru/mainlogo.svg">
       <div class="footer-contacts_left">
@@ -35,18 +35,18 @@
     </div>
 
     <!-- Карта с отложенной загрузкой -->
-<client-only>
-  <iframe
-          ref="mapFrame"
-          :src="mapSrc"
-          width="100%"
-          height="400"
-          frameborder="0"
-          loading="lazy"
-          @load="onMapLoad"
-          title="Карта расположения студии массажа"
-  ></iframe>
-</client-only>
+    <client-only>
+      <iframe
+        ref="mapFrame"
+        :src="mapSrc"
+        width="100%"
+        height="400"
+        frameborder="0"
+        loading="lazy"
+        @load="onMapLoad"
+        title="Карта расположения студии массажа"
+      ></iframe>
+    </client-only>
   </footer>
 </template>
 

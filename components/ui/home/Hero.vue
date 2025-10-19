@@ -71,10 +71,9 @@ const openBooking = () => {
 .hero-actions { display: flex; gap: 12px; margin-bottom: 20px; }
 .hero-trust { display: flex; gap: 20px; flex-wrap: wrap; }
 .hero-right { display: grid; place-items: center; }
-.hero-card { width: 100%; max-width: 420px; overflow: hidden; }
-.hero-card_img { width: 100%; height: 280px; object-fit: cover; }
+.hero-card { width: 100%; max-width: 520px; overflow: hidden; }
+.hero-card_img, .hero-video { width: 100%; height: 320px; object-fit: cover; }
 .hero-card_info { padding: 14px; display: flex; justify-content: space-between; }
-.hero-video { width: 100%; height: 280px; object-fit: cover; }
 
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; }

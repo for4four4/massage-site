@@ -4,14 +4,12 @@
       Категории услуг
     </div>
     <div class="categories page-width">
-      <a
+      <NuxtLink
           v-for="category in categories"
           :key="category.id"
           class="categories-item"
-          :href="category.href"
+          :to="category.href"
           :data-attr="category.attr"
-          v-tilt
-          @click.prevent="showElements(category.attr)"
       >
         <img class="categories-item_background" :src="category.image" :alt="category.title" />
         <span class="categories-item_title">{{ category.title }}</span>
@@ -25,7 +23,7 @@
         >
           <span v-for="service in category.services" :key="service" class="list-services-item">{{ service }}</span>
         </div>
-      </a>
+      </NuxtLink>
     </div>
   </section>
 </template>
@@ -39,23 +37,5 @@ const categories = [
   { id: 3, image: 'https://images.unsplash.com/photo-1505577058444-a3dab90d4253?q=80&w=1200&auto=format&fit=crop', title: 'Аппаратные процедуры', href: '/services/lpg', attr: 'apparatus', services: ['Массаж LPG', 'Миостимуляция'] }
 ]
 
-const showElements = (attr) => {
-  activeCategory.value = attr
-
-  // Анимация (опционально)
-  const serviceList = document.getElementById(attr)
-  const arrow = document.getElementById(`${attr}-arrow`)
-
-  if (serviceList && arrow) {
-    serviceList.animate([
-      {opacity: 0, transform: 'scale(0.9)'},
-      {opacity: 1, transform: 'scale(1)'}
-    ], { duration: 500, easing: 'ease' })
-
-    arrow.animate([
-      {transform: 'rotate(0deg)'},
-      {transform: 'rotate(180deg)'}
-    ], { duration: 500, easing: 'ease' })
-  }
-}
+const showElements = (attr) => { activeCategory.value = attr }
 </script>
