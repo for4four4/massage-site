@@ -7,7 +7,7 @@ const pool = new Pool({
   ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : undefined
 })
 
-export async function query<T = any>(text: string, params?: any[]): Promise<{ rows: T[] }> {
+export async function query<T = unknown>(text: string, params?: unknown[]): Promise<{ rows: T[] }> {
   const client = await pool.connect()
   try {
     const res = await client.query(text, params)

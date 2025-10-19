@@ -30,7 +30,7 @@ useSeo({
   description: () => post.value.body?.slice(0, 150) || 'Статья блога.',
   image: () => post.value.image,
   url: () => `https://relaxation-studio.ru/blog/${route.params.slug}`
-} as any)
+})
 </script>
 
 <style scoped>

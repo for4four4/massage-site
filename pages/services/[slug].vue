@@ -66,7 +66,7 @@ useSeo({
   description: () => `${service.value.subtitle}. Длительность ${service.value.duration}. Цена ${service.value.price}.`,
   image: () => service.value.image,
   url: () => `https://relaxation-studio.ru/services/${route.params.slug}`
-} as any)
+})
 </script>
 
 <style scoped>
