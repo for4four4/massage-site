@@ -19,15 +19,23 @@ export default defineNuxtConfig({
   },
 
   app: {
+    pageTransition: { name: 'page', mode: 'out-in', appear: true },
+    layoutTransition: { name: 'layout', mode: 'out-in' },
     head: {
       htmlAttrs: { lang: 'ru' },
-      title: 'Студия аппаратного и ручного массажа в Туле',
+      title: 'Relaxation Studio — студия массажа и SPA',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'color-scheme', content: 'light dark' }
       ],
       link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Sofia+Sans+Condensed:wght@400;500;600;700&display=swap' }
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap'
+        }
       ]
     }
   }

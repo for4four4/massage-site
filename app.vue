@@ -7,12 +7,12 @@
 
 <script setup>
 useHead({
-  title: 'Студия аппаратного и ручного массажа в Туле | Отдых для тела и души Тула',
+  title: 'Relaxation Studio — массаж и SPA | Премиальные процедуры',
   meta: [
-    { name: 'description', content: 'Студия аппаратного и ручного массажа - это место, где вы можете получить максимально полезный и эффективный массаж для укрепления здоровья и красоты.' },
-    { name: 'keywords', content: 'массаж, аппаратный массаж, ручной массаж, спа, спа-услуги' },
-    { property: 'og:title', content: 'Студия аппаратного и ручного массажа в Туле' },
-    { property: 'og:description', content: 'Студия аппаратного и ручного массажа - это место, где вы можете получить максимально полезный и эффективный массаж.' },
+    { name: 'description', content: 'Relaxation Studio — премиальная студия массажа и SPA. Профессиональные терапевты, современное оборудование, расслабляющая атмосфера.' },
+    { name: 'keywords', content: 'массаж, спа, студия массажа, спа-процедуры, Тула' },
+    { property: 'og:title', content: 'Relaxation Studio — студия массажа и SPA' },
+    { property: 'og:description', content: 'Премиальные процедуры массажа и SPA. Забота о теле и душе.' },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://relaxation-studio.ru/' },
     { property: 'og:image', content: 'https://relaxation-studio.ru/mainlogo.svg' }
@@ -29,18 +29,16 @@ useHead({
     { rel: 'preload', href: '/video-poster-optimized.webp', as: 'image' },
     { rel: 'preload', href: '/1kat-optimized.webp', as: 'image' },
 
-    // Google Fonts с отложенной загрузкой
+    // Google Fonts с отложенной загрузкой (новые шрифты)
     {
       rel: 'preload',
-      href: 'https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Sofia+Sans+Condensed:wght@400;500;600;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap',
       as: 'style',
       onload: "this.onload=null;this.rel='stylesheet'"
     },
-
-    // Fallback для шрифтов
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Sofia+Sans+Condensed:wght@400;500;600;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap',
       media: 'print',
       onload: "this.media='all'"
     }
@@ -52,10 +50,22 @@ useHead({
 
 // Загружаем аналитику после полной загрузки страницы
 onMounted(() => {
+  // Инициализируем тему до загрузки контента
+  initTheme();
+
   setTimeout(() => {
     loadAnalytics()
   }, 4000) // Загружаем через 4 секунды
 })
+
+const initTheme = () => {
+  try {
+    const stored = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    const theme = stored || (prefersDark ? 'dark' : 'light')
+    document.documentElement.setAttribute('data-theme', theme)
+  } catch {}
+}
 
 const loadAnalytics = () => {
   // Яндекс.Метрика
