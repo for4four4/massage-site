@@ -30,8 +30,16 @@
 
 <script setup>
 const activeCategory = ref(null)
+const categories = ref<any[]>([])
 
-const categories = await $fetch('/api/categories').catch(() => [])
+onMounted(async () => {
+  try {
+    const rows: any[] = await $fetch('/api/categories')
+    categories.value = rows.map(r => ({ ...r, href: `/services?category=${r.slug}` }))
+  } catch {
+    categories.value = []
+  }
+})
 
 const showElements = (attr) => { activeCategory.value = attr }
 </script>
