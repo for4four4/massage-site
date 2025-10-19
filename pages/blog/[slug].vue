@@ -19,9 +19,9 @@
   </article>
 </template>
 
-<script setup>
-const route = useRoute()
+<script setup lang="ts">
 import { useSeo } from '~/composables/useSeo'
+const route = useRoute()
 const db: Record<string, any> = {
   'benefits-of-massage': { title: 'Польза массажа для здоровья', date: '2025-10-01', image: '/1kat-optimized.webp', body: 'Регулярный массаж поддерживает здоровье мышц и суставов, улучшает настроение и качество сна.' },
   'self-care-tips': { title: 'Самопомощь между сеансами', date: '2025-10-10', image: '/2kat-optimized.webp', body: 'Несколько простых практик помогут сохранить ощущение легкости и расслабленности.' }
