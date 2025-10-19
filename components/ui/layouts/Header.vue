@@ -85,8 +85,8 @@ const openBooking = () => {
 }
 </script>
 
-<style scoped>
-.sr-only { @apply visually-hidden; }
+<style lang="scss" scoped>
+.sr-only { @include visually-hidden; }
 
 .header { backdrop-filter: saturate(1.2) blur(8px); background: color-mix(in oklab, var(--color-bg) 80%, transparent); border-bottom: 1px solid rgba(0,0,0,0.06); }
 .header-actions { display: flex; gap: 12px; align-items: center; }
