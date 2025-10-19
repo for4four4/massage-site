@@ -16,7 +16,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useSeo } from '~/composables/useSeo'
 import Carousel from '~/components/ui/common/Carousel.vue'
 useSeo({ title: 'Галерея — Relaxation Studio', description: 'Фотографии наших процедур, интерьеров и атмосферы студии.' })
