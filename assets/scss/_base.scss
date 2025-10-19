@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Sofia+Sans+Condensed:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: "CafeParisC";
+  font-display: fallback;
+  src: url("/CafeParisC.eot") format("embedded-opentype"),
+  url("/CafeParisC.woff2") format("woff2"),
+  url("/CafeParisC.woff") format("woff"),
+  url("/CafeParisC.ttf") format("truetype"),
+  url("/CafeParisC.svg") format("svg");
+}
+
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-track {
+  background: #698D69;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #F7E0B7;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+  Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.page-width {
+  width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1660px) {
+  .page-width {
+    width: 1380px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1440px) {
+  .page-width {
+    width: 100%;
+    margin: 0;
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .page-width {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .page-width {
+    padding: 0 13px;
+  }
+}
