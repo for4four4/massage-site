@@ -10,6 +10,8 @@
         <NuxtLink to="/services" itemprop="url" class="header-navbar_item">Услуги</NuxtLink>
         <NuxtLink to="/about" itemprop="url" class="header-navbar_item">О нас</NuxtLink>
         <NuxtLink to="/gallery" itemprop="url" class="header-navbar_item">Галерея</NuxtLink>
+        <NuxtLink to="/reviews" itemprop="url" class="header-navbar_item">Отзывы</NuxtLink>
+        <NuxtLink to="/contact" itemprop="url" class="header-navbar_item">Контакты</NuxtLink>
         <NuxtLink to="/blog" itemprop="url" class="header-navbar_item">Блог</NuxtLink>
         <NuxtLink to="/faq" itemprop="url" class="header-navbar_item">FAQ</NuxtLink>
       </nav>
@@ -34,6 +36,8 @@
           <NuxtLink to="/services" class="mobile-link" @click="toggleMenu">Услуги</NuxtLink>
           <NuxtLink to="/about" class="mobile-link" @click="toggleMenu">О нас</NuxtLink>
           <NuxtLink to="/gallery" class="mobile-link" @click="toggleMenu">Галерея</NuxtLink>
+          <NuxtLink to="/reviews" class="mobile-link" @click="toggleMenu">Отзывы</NuxtLink>
+          <NuxtLink to="/contact" class="mobile-link" @click="toggleMenu">Контакты</NuxtLink>
           <NuxtLink to="/blog" class="mobile-link" @click="toggleMenu">Блог</NuxtLink>
           <NuxtLink to="/faq" class="mobile-link" @click="toggleMenu">FAQ</NuxtLink>
           <div class="mobile-actions">
