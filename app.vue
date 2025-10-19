@@ -55,9 +55,14 @@ onMounted(() => {
   // Инициализируем тему до загрузки контента
   initTheme();
 
-  setTimeout(() => {
-    loadAnalytics()
-  }, 4000) // Загружаем через 4 секунды
+  // Defer third-party scripts with requestIdleCallback fallback
+  const run = () => loadAnalytics()
+  if ('requestIdleCallback' in window) {
+    // @ts-ignore
+    requestIdleCallback(run)
+  } else {
+    setTimeout(run, 4000)
+  }
 })
 
 const initTheme = () => {

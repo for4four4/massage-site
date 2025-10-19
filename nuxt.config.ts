@@ -32,6 +32,9 @@ export default defineNuxtConfig({
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'preconnect', href: 'https://images.unsplash.com' },
+        { rel: 'preload', href: '/main_photo-optimized.webp', as: 'image', fetchpriority: 'high' },
+        { rel: 'preload', href: '/mainlogo.svg', as: 'image' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap'
