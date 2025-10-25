@@ -21,7 +21,7 @@
 <script setup>
 import { useSeo } from '~/composables/useSeo'
 useSeo({ title: 'Блог — Relaxation Studio', description: 'Новости студии, преимущества массажа и советы по уходу.' })
-const posts = ref<any[]>([])
+const posts = ref([])
 onMounted(async () => {
   try { posts.value = await $fetch('/api/blogs') } catch { posts.value = [] }
 })

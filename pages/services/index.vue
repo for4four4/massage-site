@@ -18,12 +18,28 @@
 </template>
 
 <script setup lang="ts">
+interface Service {
+  slug: string
+  image: string
+  title: string
+  short: string
+}
+
 import { useSeo } from '~/composables/useSeo'
 useSeo({
   title: 'Услуги массажа и SPA — Relaxation Studio',
   description: 'Расслабляющий, спортивный, LPG и другие процедуры. Узнайте подробности и запишитесь онлайн.'
 })
-const services = await $fetch('/api/services')
+
+const services = ref<Service[]>([])
+
+onMounted(async () => {
+  try {
+    services.value = await $fetch('/api/services')
+  } catch (error) {
+    console.error('Failed to fetch services:', error)
+  }
+})
 </script>
 
 <style scoped>

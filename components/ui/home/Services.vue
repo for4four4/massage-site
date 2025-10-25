@@ -14,7 +14,7 @@
 
 <script setup>
 import Carousel from '~/components/ui/common/Carousel.vue'
-const items = ref<any[]>([])
+const items = ref([])
 onMounted(async () => {
   try {
     items.value = await $fetch('/api/services')

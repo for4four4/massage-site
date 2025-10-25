@@ -4,7 +4,7 @@
       <span class="item-button_title">{{ title }}</span>
       <img
           class="item-button_arrow"
-          :src="/arrow_services.svg"
+          src="/arrow_services.svg"
           alt="Развернуть список"
           :style="{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }"
       />

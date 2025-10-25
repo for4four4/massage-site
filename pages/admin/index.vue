@@ -50,11 +50,25 @@
 </template>
 
 <script setup lang="ts">
+interface Blog {
+  slug: string
+  title: string
+}
+
+interface Service {
+  slug: string
+  title: string
+}
+
+interface Category {
+  slug: string
+  title: string
+}
 const seo = reactive({ title: '', description: '', image: '', url: '' })
 const contacts = reactive({ phone: '', email: '', address: '', map: '', hours: '' })
-const blogs = ref<any[]>([])
-const services = ref<any[]>([])
-const categories = ref<any[]>([])
+const blogs = ref<Blog[]>([])
+const services = ref<Service[]>([])
+const categories = ref<Category[]>([])
 
 onMounted(async () => {
   const s = await $fetch('/api/seo')

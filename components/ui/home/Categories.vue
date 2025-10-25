@@ -30,11 +30,11 @@
 
 <script setup>
 const activeCategory = ref(null)
-const categories = ref<any[]>([])
+const categories = ref([])
 
 onMounted(async () => {
   try {
-    const rows: any[] = await $fetch('/api/categories')
+    const rows = await $fetch('/api/categories')
     categories.value = rows.map(r => ({ ...r, href: `/services?category=${r.slug}` }))
   } catch {
     categories.value = []

@@ -17,11 +17,34 @@
 </template>
 
 <script setup lang="ts">
+// Добавь это объявление типа
+declare global {
+  interface Window {
+    openImage?: (src: string) => void
+  }
+}
+
 import { useSeo } from '~/composables/useSeo'
 import Carousel from '~/components/ui/common/Carousel.vue'
-useSeo({ title: 'Галерея — Relaxation Studio', description: 'Фотографии наших процедур, интерьеров и атмосферы студии.' })
-const images = ['/galery1-optimized.webp','/galery2-optimized.webp','/galery3-optimized.webp','/1kat-optimized.webp','/2kat-optimized.webp','/3kat-optimized.webp']
-const open = (src: string) => { /* @ts-ignore */ if (window.openImage) window.openImage(src) }
+
+useSeo({
+  title: 'Галерея — Relaxation Studio',
+  description: 'Фотографии наших процедур, интерьеров и атмосферы студии.'
+})
+
+const images = [
+  '/galery1-optimized.webp',
+  '/galery2-optimized.webp',
+  '/galery3-optimized.webp',
+  '/1kat-optimized.webp',
+  '/2kat-optimized.webp',
+  '/3kat-optimized.webp'
+]
+
+// Теперь TypeScript знает про openImage и @ts-ignore не нужен
+const open = (src: string) => {
+  if (window.openImage) window.openImage(src)
+}
 </script>
 
 <style scoped>
